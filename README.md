@@ -1,5 +1,5 @@
 # super-bash
-Do amazing stuff with the sameold bash
+Do amazing stuff with the same old bash
 
 ### Installation
 ```

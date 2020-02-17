@@ -41,7 +41,7 @@ function glab () {
   git remote -v
 }
 
-# Colour codes are cumbersome, so let's name them
+# Let's name Color Codes
 txtcyn='\[\e[0;96m\]' # Cyan
 txtpur='\[\e[0;35m\]' # Purple
 txtwht='\[\e[0;37m\]' # White
