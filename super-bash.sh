@@ -17,6 +17,29 @@ alias mkenv='python3 -m venv env'
 alias startenv='source env/bin/activate && which python3'
 alias stopenv='deactivate'
 
+#Linux Hacks
+# start apache service
+alias apachi='systemctl start apache2'
+#random 32bit password generation
+alias pass='tr -dc 'a-zA-Z0-9~!@#$%^&*_()+}{?></";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1'
+#Logs of past 24 hrs
+alias logs ='find . -type f -mtime +1 -name "*.log" -exec zip -m {}.zip {} \; >/dev/null'
+#IPs connected to port80
+alias ip80 ='netstat -tn 2>/dev/null | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr | head'
+#cpu intel architecture family
+alias cpu='cat /sys/devices/cpu/caps/pmu_name'
+#Get all Google ipv4/6 subnets for a iptables firewall
+alias subnets ='for NETBLOCK in $(echo _netblocks.google.com _netblocks2.google.com _netblocks3.google.com); do nslookup -q=TXT $NETBLOCK ; done | tr " " "\n" | grep ^ip[46]: | cut -d: -f2- | sort'
+#Git commit logs
+alias gitlog ='git log --since='last month' --author="$(git config user.name)" --oneline'
+" >> ~/.bash_aliases
+echo "
+#Show contents of the directory after changing into it
+function cd () {
+  builtin cd "$1" 
+  ls -ACF
+}
+
 # Hugo install or upgrade eg. gethugo 0.57.2
 function gethugo () {
   wget -q -P tmp/ https://github.com/gohugoio/hugo/releases/download/v"$@"/hugo_extended_"$@"_Linux-64bit.tar.gz
@@ -57,12 +80,4 @@ export PS1="${pathC}\w ${gitC}\$(gitBranch) ${pointerC}\$${normalC} "
 
 export PS1="${userC}\u ${normalC}at \t >"
 
-
-" >> ~/.bash_aliases
-echo "
-#Show contents of the directory after changing into it
-function cd () {
-  builtin cd "$1" 
-  ls -ACF
-}
 " >> ~/.bashrc
