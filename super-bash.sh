@@ -18,21 +18,26 @@ alias startenv='source env/bin/activate && which python3'
 alias stopenv='deactivate'
 
 #Linux Hacks
-# start apache service
+#start apache service
 alias apachi='systemctl start apache2'
 #random 32bit password generation
 alias pass='tr -dc 'a-zA-Z0-9~!@#$%^&*_()+}{?></";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1'
 #Logs of past 24 hrs
-alias logs ='find . -type f -mtime +1 -name "*.log" -exec zip -m {}.zip {} \; >/dev/null'
+alias logs='find . -type f -mtime +1 -name "*.log" -exec zip -m {}.zip {} \; >/dev/null'
 #IPs connected to port80
-alias ip80 ='netstat -tn 2>/dev/null | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr | head'
+alias ip80='netstat -tn 2>/dev/null | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr | head'
 #cpu intel architecture family
 alias cpu='cat /sys/devices/cpu/caps/pmu_name'
 #Get all Google ipv4/6 subnets for a iptables firewall
-alias subnets ='for NETBLOCK in $(echo _netblocks.google.com _netblocks2.google.com _netblocks3.google.com); do nslookup -q=TXT $NETBLOCK ; done | tr " " "\n" | grep ^ip[46]: | cut -d: -f2- | sort'
+alias subnets='for NETBLOCK in $(echo _netblocks.google.com _netblocks2.google.com _netblocks3.google.com); do nslookup -q=TXT $NETBLOCK ; done | tr " " "\n" | grep ^ip[46]: | cut -d: -f2- | sort'
 #Git commit logs
-alias gitlog ='git log --since='last month' --author="$(git config user.name)" --oneline'
+alias gitlog='git log --since='last month' --author="$(git config user.name)" --oneline'
+#Scan all open ports without any required program
+alias scan='for i in {1..65535}; do (echo < /dev/tcp/127.0.0.1/$i) &>/dev/null && printf "\n[+] Open Port at\n: \t%d\n" "$i" || printf "."; done'
+#Scan entire Git repos for dangerous Service IDs
+alias gitsecret='git ls-tree --full-tree -r --name-only HEAD | xargs egrep -w '[A-Z0-9]{20}''
 " >> ~/.bash_aliases
+
 echo "
 #Show contents of the directory after changing into it
 function cd () {
