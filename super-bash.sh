@@ -21,7 +21,7 @@ alias stopenv='deactivate'
 #start apache service
 alias apachi='systemctl start apache2'
 #random 32bit password generation
-alias pass='tr -dc 'a-zA-Z0-9~!@#$%^&*_()+}{?></";.,[]=-' < /dev/urandom | fold -w 32 | head -n 1'
+alias pass='< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;'
 #Logs of past 24 hrs
 alias logs='find . -type f -mtime +1 -name "*.log" -exec zip -m {}.zip {} \; >/dev/null'
 #IPs connected to port80
