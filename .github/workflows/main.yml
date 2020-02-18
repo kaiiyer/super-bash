@@ -1,4 +1,5 @@
 name: GitHub Action for Bash
+on: [push]
 
 jobs:
   build:
