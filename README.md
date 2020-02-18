@@ -1,4 +1,6 @@
 # super-bash
+![GitHub Action for Bash](https://github.com/kaiiyer/super-bash/workflows/GitHub%20Action%20for%20Bash/badge.svg)
+
 Do amazing stuff with the same old bash
 
 ## Features
