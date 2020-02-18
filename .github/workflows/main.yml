@@ -1,0 +1,10 @@
+name: GitHub Action for Bash
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: lafernando/github-action-bash@v1.0
