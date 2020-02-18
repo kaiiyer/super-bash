@@ -27,6 +27,12 @@ Do amazing stuff with the same old bash
   - cpu for viewing the cpu intel architecture family
   - subnets for getting all Google ipv4/6 subnets for a iptables firewall
   - gitlogs for viewing git commit logs
+  - process for viewing top 10 Memory Processes 
+  - scan for scanning all open ports without any required program
+  - network for Network Info
+  - gitsecret for scanning entire Git repos for Service IDs
+  - wifi to view access point speed, signal strength and security informations
+  - ipa for viewing public IP address
 
 ### Installation
 ```
