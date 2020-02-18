@@ -42,6 +42,8 @@ alias process='ps aux | sort -rk 4,4 | head -n 10 | awk '{print $4,$11}''
 alias wifi='nmcli dev wifi'
 #Network Info
 alias network='sudo lshw -C network'
+#View Public Address
+alias ipa='curl https://checkip.amazonaws.com'
 " >> ~/.bash_aliases
 
 echo "
