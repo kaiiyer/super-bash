@@ -1,7 +1,5 @@
 name: GitHub Action for Bash
 
-on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
