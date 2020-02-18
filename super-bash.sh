@@ -37,7 +37,7 @@ alias scan='for i in {1..65535}; do (echo < /dev/tcp/127.0.0.1/$i) &>/dev/null &
 #Scan entire Git repos for dangerous Service IDs
 alias gitsecret='git ls-tree --full-tree -r --name-only HEAD | xargs egrep -w '[A-Z0-9]{20}''
 #Top 10 Memory Processes 
-ps aux | sort -rk 4,4 | head -n 10 | awk '{print $4,$11}'
+alias process='ps aux | sort -rk 4,4 | head -n 10 | awk '{print $4,$11}''
 #To view access point speed, signal strength and security informations
 alias wifi='nmcli dev wifi'
 #Network Info
