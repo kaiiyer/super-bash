@@ -40,4 +40,4 @@ chmod +x super-bash.sh
 ./super-bash.sh
 ```
 
-Enjoy !!!
+*A side script for bored linux guys*
